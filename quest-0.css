@@ -16,6 +16,7 @@ body {
   color: #1f140d;
 }
 
+/* Background image */
 body::before {
   content: "";
   position: fixed;
@@ -27,6 +28,7 @@ body::before {
   z-index: -2;
 }
 
+/* Soft overlay */
 body::after {
   content: "";
   position: fixed;
@@ -49,13 +51,10 @@ main {
   left: 50%;
   top: 50%;
   width: min(92vw, 420px);
-  max-width: 550px;
-
   aspect-ratio: 390 / 844;
   transform: translate(-50%, -50%);
   overflow: visible;
-
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.25));
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
 }
 
 /* 4. Border */
@@ -66,7 +65,6 @@ main {
   height: 100%;
   object-fit: contain;
   transform: scale(1.23);
-
   z-index: 3;
   pointer-events: none;
 }
@@ -78,10 +76,8 @@ main {
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
-
   z-index: 2;
-
-  filter: drop-shadow(0px 14px 28px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.3));
 }
 
 /* 6. Paper image */
@@ -98,23 +94,21 @@ main {
   position: absolute;
   inset: 0;
   z-index: 3;
-  margin-top: 10%;
   width: 100%;
-
+  margin-top: 36px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  padding: 13% 5% 16%;
+  gap: 10px;
+  padding: 20px 0 16px;
 }
 
 /* 8. Typography */
 h1 {
-  margin: 5% 0 7% 0;
+  margin: 0 0 5px 0;
   font-family: "jacquard-24", sans-serif;
-  font-size: clamp(1rem, 2rem, 3rem);
+  font-size: 50px;
   font-weight: 400;
-  font-size: 52px;
   color: #800020;
   line-height: 1;
 }
@@ -122,56 +116,58 @@ h1 {
 .container p {
   margin: 0;
   padding: 0;
+  width: 82%;
   font-family: "La Belle Aurore", cursive;
-  font-size: clamp(0.6rem, 1.2rem, 1.5rem);
-  color: #3a1c1c; 
-  line-height: 1.5;
-  max-width: 82%;
+  font-size: 16px;
+  color: #3a1c1c;
+  line-height: 1.6;
 }
 
+/* Continue prompt */
 .continue-prompt {
   position: absolute;
   left: 50%;
+  bottom: 27%;
   transform: translateX(-50%);
-  padding: 153% 0% 16%;
-
   z-index: 5;
-
-  font-family: "La Belle Aurore", cursive;
-  font-size: clamp(0.7rem, .75rem, 1.4rem);
-  color: #3a1c1c;
-  line-height: 1.5;
-
-  opacity: 0.9;
+  width: 72%;
   pointer-events: none;
+}
+
+.continue-prompt p {
+  margin: 0;
+  font-family: "La Belle Aurore", cursive;
+  font-size: 14px;
+  color: #3a1c1c;
+  line-height: 1.4;
+  opacity: 0.9;
 }
 
 /* 9. Coin button */
 .button {
   position: absolute;
   left: 50%;
-  bottom: 28%;
+  bottom: 30%;
   transform: translateX(-50%);
+  width: 75px;
+  height: 75px;
 
+  border: none;
+  background-color: transparent;
   background-image: url("coin.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: clamp(60px, 20vw, 85px);
-  height: clamp(60px, 20vw, 85px);
-
-  border: none;
-  background-color: transparent;
   cursor: pointer;
   z-index: 4;
 
   filter:
     saturate(0.75)
-    contrast(.75)
-    drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.25));
+    contrast(0.75)
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.25));
 }
 
-/* Decoratiev pen */
+/* Decorative pen */
 .pen {
   position: absolute;
   right: -150px;
@@ -189,12 +185,12 @@ h1 {
     saturate(0.7)
     contrast(0.8)
     brightness(0.85)
-    drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.45));
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
 }
 
-/* Decorative Key Necklace */
+/* Decorative keys */
 .keys {
-  position: fixed;
+  position: absolute;
   left: -80px;
   top: 80px;
   width: 230px;
@@ -209,11 +205,12 @@ h1 {
     saturate(0.7)
     contrast(0.8)
     brightness(0.85)
-    drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.45));
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
 }
 
+/* Decorative coins */
 .coins {
-  position: fixed;
+  position: absolute;
   bottom: 90px;
   left: -80px;
   width: 200px;
@@ -225,21 +222,15 @@ h1 {
 
   filter:
     saturate(0.7)
-    brightness(.95)
+    brightness(0.95)
     contrast(0.75)
-    drop-shadow(0px 6px 8px rgba(0, 0, 0, 0.45));
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
 }
 
-/* 10. Small screens */ /* Still need to refine this */
+/* 10. Small screens */
 @media (max-width: 400px) {
   .scene {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: min(86vw, 420px);
-    aspect-ratio: 390 / 844;
-    transform: translate(-50%, -50%);
-    overflow: visible;
+    width: min(88vw, 420px);
   }
 
   .paper-wrap {
@@ -248,32 +239,38 @@ h1 {
   }
 
   .container {
-    padding: 20% 11% 15%;
-  }
-
-  .container p {
-    font-size: clamp(0.5rem, .85rem, 1.1rem);
-    max-width: 84%;
-    line-height: 1.4;
+    margin-top: 36px;
+    padding: 20px 0 16px;
   }
 
   h1 {
-    font-size: clamp(1.5rem, 2rem, 2.8rem);
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .container p {
+    width: 82%;
+    font-size: 12px;
+    line-height: 1.6;
   }
 
   .continue-prompt {
-    top: -2%;
+    bottom: 27%;
+    width: 100%;
+  }
+
+  .continue-prompt p {
     font-size: 9px;
   }
 
   .button {
-    width: 60px;
-    height: 60px;
-    bottom: 32%;
+    width: 65px;
+    height: 65px;
+    bottom: 29%;
   }
 
   .keys {
-    top: 0%;
+    top: 0;
     left: -15%;
     width: min(50vw, 220px);
     max-width: 60%;
@@ -281,15 +278,18 @@ h1 {
 
   .pen {
     top: 45%;
-    left: 50%;
-    transform: rotate(-20deg);
+    left: 55%;
+    right: auto;
+    width: 82%;
+    max-width: 320px;
+    transform: translateX(-5%) rotate(-20deg);
   }
 
   .coins {
     top: 70%;
     left: -10%;
+    bottom: auto;
     width: min(40vw, 200px);
     max-width: 50%;
   }
-  
 }

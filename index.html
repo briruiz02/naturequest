@@ -10,37 +10,48 @@
   <link rel="stylesheet" href="quest-0.css">
 </head>
 
-<body> 
-
-  <main>  
-    
-    <div class="scene">  
-     
+<body>
+  <main>
+    <div class="scene">
       <img src="border.png" class="border" alt="">
-      
+
       <div class="paper-wrap">
-        <img src="old-paper.png" class="message" alt="">
+        <img src="old-paper.png" class="message" alt="Aged paper background">
 
         <div class="container">
-          <p class="s0">The king asks for your help</p>
-          <h1>Your Quest:</h1>
-          <p class="s1">Dear traveler, venture forth and heed the world.</p>
-          <p class="s2">Mark well what dost see, and report it true.</p>
-          <p class="s3">Thy observations shall determine thy reward.</p>
+          <p class="s0">The King calls upon you.</p>
+
+          <h1>Your Quest</h1>
+
+          <p class="s1">You are about to begin a short journey.</p>
+
+          <p class="s1">
+            As you go, pay close attention to your surroundings.
+            What you see, hear, and feel will shape your reward.
+          </p>
+
+          <p class="s2"><strong>Before you begin, gather your tools:</strong></p>
+
+          <p class="tools">
+            Something to write with (paper or your device), 
+            a quiet mind, and a mindful eye.</p>
         </div>
       </div>
 
       <div class="continue-prompt">
-        <p>Press thy coin to accept journey.</p>
+        <p>Tap the coin to begin your quest.</p>
       </div>
-       
+
       <img src="keys.png" class="keys" alt="">
       <img src="gcoins.png" class="coins" alt="">
       <img src="fountain-pen.png" class="pen" alt="">
 
-      <button onclick="window.location.href='quest-1.html'" class="button" aria-label="Continue"></button>
+      <button
+        class="button"
+        onclick="window.location.href='quest-1.html'"
+        aria-label="Begin your quest">
+      </button>
     </div>
-
   </main>
 </body>
 </html>

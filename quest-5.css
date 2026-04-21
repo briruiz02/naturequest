@@ -1,0 +1,314 @@
+/* 1. Base */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  text-align: center;
+  color: #1f140d;
+}
+
+/* Background image */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("background.jpg");
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+/* Soft overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(250, 235, 215, 0.89);
+  z-index: -1;
+}
+
+/* 2. Layout */
+main {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 3. Main composition */
+.scene {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(92vw, 420px);
+  aspect-ratio: 390 / 844;
+  transform: translate(-50%, -50%);
+  overflow: visible;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+}
+
+/* 4. Border */
+.border {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.23);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 5. Paper wrapper */
+.paper-wrap {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  z-index: 2;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.3));
+}
+
+/* 6. Paper image */
+.message {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.82;
+  pointer-events: none;
+}
+
+/* 7. Text on paper */
+.container {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 25px 0 16px;
+}
+
+/* 8. Typography */
+h1 {
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: "jacquard-24", sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  color: #800020;
+  line-height: 1;
+}
+
+.container p {
+  margin: 0;
+  padding: 0;
+  width: 82%;
+  font-family: "La Belle Aurore", cursive;
+  font-size: 16px;
+  color: #3a1c1c;
+  line-height: 1.6;
+}
+
+/* Return button */
+.back-btn {
+  position: absolute;
+  top: 98px; 
+  left: 5px;
+  padding: 7px 5px 5px;
+
+  font-family: "La Belle Aurore", cursive;
+  font-size: 0.9rem;
+  color: black;
+
+  text-decoration: none;
+  z-index: 20;
+}
+
+.back-btn:hover {
+  opacity: 1;
+  transform: translateX(-2px);
+}
+
+/* 9. Coin button */
+.button {
+  position: absolute;
+  left: 50%;
+  bottom: 30%;
+  transform: translateX(-50%);
+  width: 75px;
+  height: 75px;
+
+  border: none;
+  background-color: transparent;
+  background-image: url("coin.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  z-index: 4;
+
+  filter:
+    saturate(0.75)
+    contrast(0.75)
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.25));
+}
+
+/* Decorative pen */
+.pen {
+  position: absolute;
+  right: -150px;
+  top: 460px;
+  width: 350px;
+  height: auto;
+  transform: rotate(-20deg);
+  transform-origin: center;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.95;
+
+  filter:
+    sepia(50%)
+    saturate(0.7)
+    contrast(0.8)
+    brightness(0.85)
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
+}
+
+/* Decorative candle */
+.candle {
+  position: absolute;
+  left: -90px;
+  top: 100px;
+  width: 210px;
+  height: auto;
+  transform: rotate(335deg);
+  z-index: 4;
+  pointer-events: none;
+
+  filter:
+    sepia(50%)
+    contrast(0.8)
+    brightness(0.9)
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
+}
+
+/* Decorative coins */
+.coins {
+  position: absolute;
+  bottom: 90px;
+  left: -80px;
+  width: 200px;
+  height: auto;
+  transform: rotate(50deg);
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0.95;
+
+  filter:
+    saturate(0.7)
+    brightness(0.95)
+    contrast(0.75)
+    drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
+}
+
+/* 10. Small screens */
+@media (max-width: 400px) {
+  .scene {
+    width: min(88vw, 420px);
+  }
+
+  .paper-wrap {
+    top: 20%;
+    width: 83%;
+  }
+
+  .container {
+    margin-top: 36px;
+    padding: 15px 0 16px;
+  }
+
+  h1 {
+    font-size: 40px;
+    margin: 0;
+  }
+
+  .container p {
+    width: 82%;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .continue-prompt {
+    bottom: 27%;
+    width: 100%;
+  }
+
+  .continue-prompt p {
+    font-size: 9px;
+  }
+
+  .button {
+    width: 65px;
+    height: 65px;
+    bottom: 29%;
+  }
+
+  .candle {
+    top: 11%;
+    left: -20%;
+    width: min(50vw, 220px);
+    max-width: 55%;
+  }
+
+  .pen {
+    top: 45%;
+    left: 55%;
+    right: auto;
+    width: 82%;
+    max-width: 320px;
+    transform: translateX(-5%) rotate(-20deg);
+  }
+
+  .coins {
+    top: 70%;
+    left: -10%;
+    bottom: auto;
+    width: min(40vw, 200px);
+    max-width: 50%;
+  }
+
+    .back-btn {
+  position: absolute;
+  top: 77px; 
+  left: 8px;
+  padding: 7px 5px 5px;
+
+  font-family: "La Belle Aurore", cursive;
+  font-size: 0.75rem;
+  color: black;
+
+  text-decoration: none;
+  z-index: 20;
+}
+
+.back-btn:hover {
+  opacity: 1;
+  transform: translateX(-2px);
+}
+}
